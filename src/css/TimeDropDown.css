@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Anton+SC&display=swap');
+
+.form-time-icon {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    align-self: center;
+    justify-self: center;
+    width: 24px;
+    height: 24px;
+}
+
+.form-time-drop-down {
+    grid-column-start: 2;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    align-self: center;
+
+    border: none;
+    margin-right: 1.5rem;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1.5rem;
+    color: black;
+}

@@ -1,0 +1,164 @@
+.footer-container {
+    height: 25rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-color: #8F002E;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.footer-res-location-1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    justify-self: left;
+}
+
+.footer-res-location-2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    justify-self: left;
+}
+
+.footer-res-location-style h2 {
+    font-family: 'Anton SC', sans-serif;
+    color: #DFBA13;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.footer-res-location-style p {
+    font-family: 'Afacad', sans-serif;
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 2rem;
+}
+
+.footer-working-hours {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    justify-self: left;
+}
+
+.footer-working-hours h2 {
+    font-family: 'Anton SC', sans-serif;
+    color: #DFBA13;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.footer-working-hours p {
+    font-family: 'Afacad', sans-serif;
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 2rem;
+}
+
+.footer-section-3-text {
+    padding-top: 1rem;
+}
+
+.footer-about-us {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    justify-self: left;
+}
+
+.footer-about-us h2 {
+    font-family: 'Anton SC', sans-serif;
+    color: #DFBA13;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.footer-about-us p {
+    font-family: 'Afacad', sans-serif;
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 2rem;
+}
+
+.footer-copyright {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    justify-self: center;
+    align-self: center;
+}
+
+.footer-copyright p {
+    font-family: 'Afacad', sans-serif;
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 2rem;
+}
+
+
+@media all and (min-width: 320px) and (max-width: 899px) {
+
+    .footer-container {
+        height: 53rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        row-gap: 2rem;
+    }
+
+    .footer-res-location-1 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        justify-self: left;
+        padding-top: 3rem;
+    }
+
+    .footer-res-location-2 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        justify-self: left;
+    }
+
+    .footer-working-hours {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        justify-self: left;
+    }
+
+    .footer-section-3-text {
+        padding-top: 1rem;
+    }
+
+    .footer-about-us {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        justify-self: left;
+    }
+
+    .footer-copyright {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        justify-self: center;
+        align-self: center;
+    }
+}

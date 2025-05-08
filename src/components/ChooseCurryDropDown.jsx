@@ -1,0 +1,40 @@
+import React, { useState } from 'react';
+import '../css/ChooseCurryDropDown.css';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
+const   ChooseCurryDropDown = ({ selectedCurry, setSelectedCurry }) => {
+
+// Initialize state to store selected restaurant
+    //   const [selectedCurry, setSelectedCurry] = useState('');
+    
+      // Array of restaurant options
+      const curries = ['Madras Chicken', 'Korma Chicken', 'Tikka Masala Chicken', 'Rogan Josh Chicken'];
+    
+      // Handle selection change
+      const handleSelect = (event) => {
+        setSelectedCurry(event.target.value);
+      };
+
+    return (
+                <>
+                    <select
+                        id="curry"
+                        value={selectedCurry}
+                        onChange={handleSelect}
+                        className="form-curry-drop-down"
+                    >
+                        <option value="" disabled>Choose Curry</option>
+                        {curries.map((curry, index) => (
+                        <option key={index} value={curry}>
+                            {curry}
+                        </option>
+                        ))}
+                    </select>
+
+                </>
+            );
+};
+
+export default ChooseCurryDropDown;

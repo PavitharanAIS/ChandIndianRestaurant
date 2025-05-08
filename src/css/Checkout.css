@@ -1,0 +1,807 @@
+.checkout-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    display: grid;
+    column-gap: 1rem;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #DFBA13;
+}
+
+.checkout-order-summary {
+    height: fit-content;
+    background-color: white;
+    border-radius: 0.5rem;
+    margin-left: 1.5rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.checkout-payment {
+    background-color: white;
+    border-radius: 0.5rem;
+    margin-right: 1.5rem;
+    padding-top: 1rem;
+
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.restaurant-details {
+    display: grid;
+    height: 4rem;
+    column-gap: 1rem;
+    grid-template-columns: 7rem 1fr;
+    grid-template-rows: 1fr;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-family: 'Afacad', sans-serif;
+}
+
+.restaurant-logo {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    border-radius: 0.5rem;
+    object-fit: cover;
+    width: 100%;
+}
+
+.restaurant-name-address {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    align-self: center;
+}
+
+.restaurant-name-address p {
+    color: rgb(121, 121, 121);
+}
+
+.delivery-option-container {
+    display: grid;
+    row-gap: 0.5rem;
+    grid-template-rows: repeat(3, object-fit);
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-family: 'Afacad', sans-serif;
+
+    margin-top: 2rem;
+}
+
+.delivery-option-container h2 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: left;
+}
+
+.pickup-takeaway-buttons {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    justify-self: left;
+    align-self: center;
+}
+
+.pickup-takeaway-buttons button {
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+}
+
+#takeaway-button {
+    margin-left: 0.5rem;
+}
+
+.not-selected {
+    padding: 0.5rem 1rem;
+    border: solid 1px #8f002e;
+    border-radius: 0.25rem;
+    color: #8F002E;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.selected {
+    padding: 0.5rem 1rem;
+    border: solid 1px #8f002e;
+    border-radius: 0.25rem;
+    color: white;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+    background-color: #8F002E;
+}
+
+.pickup-time-container {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.time-form {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: rgb(228, 228, 228);
+    border-radius: 0.25rem;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+}
+
+.time-form input {
+    margin-left: 0.5rem;
+    border: none;
+    background-color: rgb(228, 228, 228);
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+}
+
+.customer-details-container {
+    display: grid;
+    row-gap: 0.5rem;
+    grid-template-rows: repeat(2, object-fit);
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-family: 'Afacad', sans-serif;
+
+    margin-top: 1rem;
+}
+
+.customer-form {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    display: grid;
+    grid-template-rows: repeat(3, object-fit);
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.5rem;
+    column-gap: 0.5rem;
+}
+
+.input-firstname {
+    padding: 0.5rem;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+}
+
+.input-lastname {
+    padding: 0.5rem;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+}
+
+.input-email {
+    padding: 0.5rem;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+}
+
+.input-mobile {
+    padding: 0.5rem;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+}
+
+.input-address {
+   
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 5;
+
+    padding: 0.5rem;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+    height: 5rem;
+    resize: vertical;
+}
+
+.order-summary-container {
+    display: grid;
+    row-gap: 0.5rem;
+    grid-template-rows: repeat(5, object-fit);
+    grid-template-columns: 1fr;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-family: 'Afacad', sans-serif;
+
+    margin-top: 1rem;
+}
+
+.select-deal-section {
+    display: grid;
+    grid-template-rows: repeat(2, object-fit);
+    grid-template-columns: 1fr;
+    font-family: 'Afacad', sans-serif;
+}
+
+.select-deal-text {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+}
+
+.select-deal-form {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.or-text {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    justify-self: center;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.voucher-code-section {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 80% 20%);
+    font-family: 'Afacad', sans-serif;
+}
+
+.input-voucher-code {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.add-button {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+
+    justify-self: right;
+    background-color: #8F002E;
+    border: none;
+    border-radius: 0.25rem;
+    color: white;
+}
+
+.add-button:hover {
+    cursor: pointer;
+    background-color: #7e0028;
+}
+
+.order-description-container {
+    display: grid;
+    row-gap: 0.5rem;
+    column-gap: 1rem;
+    grid-template-rows: 1fr;
+    grid-template-columns: 15% 1fr 15%;
+    font-family: 'Afacad', sans-serif;
+
+    margin-top: 2.5rem;
+}
+
+.order-image-container {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    justify-self: center;
+    align-self: top;
+}
+
+.order-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.order-details-container {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+}
+
+.order-price {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+    font-family: 'Afacad', sans-serif;
+    font-size: 1rem;
+
+    justify-self: right;
+    align-self: normal;
+}
+
+.order-details-container {
+    display: grid;
+    row-gap: 0.5rem;
+    grid-template-rows: repeat(4, object-fit);
+    grid-template-columns: 1fr;
+    font-family: 'Afacad', sans-serif
+}
+
+.order-quantity-price {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    display: grid;
+    column-gap: 2rem;
+    height: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.order-counter-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+
+    font-family: 'Afacad', sans-serif;
+}
+
+.order-counter-section-plus-btn {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    
+    background-color: #8F002E;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.order-counter-section-quantity {
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    justify-self: center;
+    align-self: center;
+    
+}
+
+.order-counter-section-minus-btn {
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+    background-color: #8F002E;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.multiply-symbol-section {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: left;
+    align-self: center;
+}
+
+.dish-price-per-serving-section {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: center;
+    align-self: center;
+}
+
+.order-details {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 1fr;
+    justify-self: start;
+
+    font-family: 'Afacad', sans-serif;
+    color: rgb(136, 136, 136);
+    font-weight: bold;
+}
+
+.order-edit {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    color: #8F002E;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.total-pay-container {
+    display: grid;
+    row-gap: 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, object-fit);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    font-family: 'Afacad', sans-serif;
+    
+}
+
+.total-pay-title {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.total-pay-details-container {
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    row-gap: 0.5rem;
+
+    font-size: 1.2rem;
+}
+
+.total-pay-subtotal-section {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.total-pay-service-fee-section {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.subtotal-text {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.subtotal-amount {
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    justify-self: end;
+}
+
+.service-fee-text {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.service-fee-amount {
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    justify-self: end;
+}
+
+.total-pay-amount-container {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+
+    font-size: 1.2rem;
+    color:#8F002E;
+    font-weight: bold;
+}
+
+.total-pay-text {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.total-pay-amount {
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    justify-self: end;
+}
+
+.payment-method-container {
+    display: grid;
+    row-gap: 0.5rem;
+    grid-template-rows: repeat(10, object-fit);
+    grid-template-columns: 1fr;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+
+    font-family: 'Afacad', sans-serif;
+}
+
+.radio-btn-elements {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, object-fit);
+}
+
+.radio-elements {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: start;
+}
+
+.radio-icons {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+
+    justify-self: left;
+    align-self: center;
+    margin-left: 1.5rem;
+}
+
+.radio-text {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: left;
+    align-self: center;
+    margin-left: 4rem;
+
+    font-size: 1.2rem;
+}
+
+.afterpay-btn {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: start;
+}
+
+.afterpay-logo {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    justify-self: left;
+    margin-left: 0.9rem;
+}
+
+.afterpay-text {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: left;
+    align-self: center;
+    margin-left: 4rem;
+    font-size: 1.2rem;
+
+}
+
+.payment-info {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    font-size: 0.85rem;
+    color: rgb(104, 104, 104);
+    margin-left: 1.5rem;
+}
+
+.afterpay-description-container {
+    display: grid;
+    row-gap: 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, object-fit);
+}
+
+.afterpay-badge-description {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    font-size: 1rem;
+}
+
+.afterpay-badge {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    width: 6rem;
+}
+
+.afterpay-badge:hover {
+    cursor: pointer;
+}
+
+.afterpay-description-info-icon {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    margin-left: 7rem;
+    align-self: center;
+}
+
+.afterpay-description-info-icon:hover {
+    cursor: pointer;
+}
+
+.surcharge-warning-container {
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+
+.agreement-container {
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+
+.agreement-container input {
+    margin-right: 1rem;
+}
+
+.pay-now-btn {
+    background-color: #8F002E;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    height: 3.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: 'Afacad', sans-serif;
+    margin-top: 1rem;
+}
+
+.pay-now-btn:hover {
+    cursor: pointer;
+    background-color: #7e0028;
+}
+
+.gst-allergy-text-container {
+    display: grid;
+    row-gap: 0.5rem;
+    grid-template-rows: repeat(2, object-fit);
+    grid-template-columns: 1fr;
+
+    padding-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.gst-text {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.allergy-text {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    color: #8F002E;
+}
+
+.allergy-text:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

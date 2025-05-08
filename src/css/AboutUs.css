@@ -1,0 +1,357 @@
+.about-us-container {
+    height: 70rem;
+    background-color: #DFBA13;
+    z-index: -1;
+}
+
+.about-us-title {
+    color: #8f002e;
+    font-family: 'Anton SC', sans-serif;
+    font-size: 4.5rem;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.about-us-section-container {
+
+    width: 100%;
+    height: 40rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.section-style {
+    padding-top: 3rem;
+   
+}
+
+.section-title-1 {
+    background-image: url("../images/about-us-bg.png");
+    background-size: 9rem 3rem; /* Adjust to cover the entire div */
+    background-repeat:no-repeat;
+    background-position: left center; /* Align the image to the left side */
+    width: 10rem;
+    height: 3rem; /* Adjust the height according to your needs */
+    position: relative;
+    z-index: 1000;
+    justify-content: center;
+    justify-self: left;
+    padding-left: 1rem;
+    
+}
+
+.section-title-2, .section-title-3, .section-title-4, .section-title-5 {
+    background-image: url("../images/about-us-bg.png");
+    background-size: cover; /* Adjust to cover the entire div */
+    background-repeat: no-repeat;
+    background-position: left center; /* Align the image to the left side */
+    width: 15rem;
+    height: 3rem; /* Adjust the height according to your needs */
+    position: relative;
+    z-index: 1000;
+    justify-content: center;
+    justify-self: left;
+    padding-left: 1rem;
+}
+
+.section-title h2 {
+    position: absolute;
+    top: 50%; /* Centers the text vertically */
+    left: 50%; /* Centers the text horizontally */
+    transform: translate(-50%, -50%); /* Adjusts for perfect centering */
+    font-family: 'Anton SC', sans-serif;
+    color: #8F002E;
+    font-size: 2rem;
+    text-align: left;
+    z-index: 1001; /* Ensures text is above the background */
+}
+
+.section-style h2 {
+    font-family: 'Anton SC', sans-serif;
+    color: #8F002E;
+    font-size: 2rem;
+    text-align: left;
+}
+
+.section-style p {
+    font-family: 'Afacad', sans-serif;
+    color: white;
+    font-size: 1.2rem;
+    text-align: justify;
+    padding-top: 0.5rem;
+    text-align: left;
+}
+
+.about-us-endcard {
+
+    height: auto;
+    font-family: 'Anton SC', sans-serif;
+    color: #8F002E;
+    font-size: 2.5rem;
+    text-align: center;
+    background-color: white; 
+
+    margin-top: 3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer-container {
+    height: 25rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-color: #8F002E;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.footer-res-location-1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    justify-self: left;
+}
+
+.footer-res-location-2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    justify-self: left;
+}
+
+.footer-res-location-style h2 {
+    font-family: 'Anton SC', sans-serif;
+    color: #DFBA13;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.footer-res-location-style p {
+    font-family: 'Afacad', sans-serif;
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 2rem;
+}
+
+.footer-working-hours {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    justify-self: left;
+}
+
+.footer-working-hours h2 {
+    font-family: 'Anton SC', sans-serif;
+    color: #DFBA13;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.footer-working-hours p {
+    font-family: 'Afacad', sans-serif;
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 2rem;
+}
+
+.footer-section-3-text {
+    padding-top: 1rem;
+}
+
+.footer-about-us {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    justify-self: left;
+}
+
+.footer-about-us h2 {
+    font-family: 'Anton SC', sans-serif;
+    color: #DFBA13;
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.footer-about-us p {
+    font-family: 'Afacad', sans-serif;
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 2rem;
+}
+
+.footer-copyright {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    justify-self: center;
+    align-self: center;
+}
+
+.footer-copyright p {
+    font-family: 'Afacad', sans-serif;
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 2rem;
+}
+
+
+
+@media all and (min-width: 320px) and (max-width: 899px) {
+    .footer-container {
+        height: 53rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(5, 1fr);
+        row-gap: 2rem;
+    }
+
+    .footer-res-location-1 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        justify-self: left;
+        padding-top: 3rem;
+    }
+    
+    .footer-res-location-2 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        justify-self: left;
+    }
+    
+    .footer-working-hours {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        justify-self: left;
+    }
+    
+    .footer-section-3-text {
+        padding-top: 1rem;
+    }
+    
+    .footer-about-us {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        justify-self: left;
+    }
+    
+    .footer-copyright {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 5;
+        grid-row-end: 6;
+        justify-self: center;
+        align-self: center;
+    }
+}
+
+
+
+@media all and (min-width: 900px) and (max-width: 1024px) {
+    .about-us-container {
+        height: 80rem;
+    }
+
+    .about-us-endcard {
+        height: auto;
+    }
+
+} 
+
+@media all and (min-width: 800px) and (max-width: 900px) {
+    .about-us-container {
+        height: 85rem;
+    }
+
+    .about-us-endcard {
+        height: auto;
+    }
+
+} 
+
+@media all and (min-width: 700px) and (max-width: 800px) {
+    .about-us-container {
+        height: 85rem;
+    }
+
+    .about-us-endcard {
+        height: auto;
+    }
+
+} 
+
+ 
+
+@media all and (min-width: 670px) and (max-width: 700px) {
+    .about-us-container {
+        height: 90rem;
+    }
+
+    .about-us-endcard {
+        height: auto;
+    }
+
+} 
+
+
+@media all and (min-width: 581px) and (max-width: 670px) {
+    .about-us-container {
+        height: 90rem;
+    }
+
+    .about-us-endcard {
+        height: auto;
+    }
+
+}
+
+
+@media all and (min-width: 520px) and (max-width: 580px) {
+    .about-us-container {
+        height: 95rem;
+    }
+
+    .about-us-endcard {
+        height: auto;
+    }
+
+} 
+
+@media all and (min-width: 320px) and (max-width: 500px) {
+    .about-us-container {
+        height: 115rem;
+    }
+
+    .about-us-endcard {
+        height: auto;
+    }
+
+} 

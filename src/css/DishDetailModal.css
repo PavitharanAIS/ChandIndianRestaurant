@@ -1,0 +1,391 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #8f002e;
+    width: 60%;
+    height: 33.5rem;
+    position: relative;
+    border-radius: 0.5rem;
+
+}
+
+.modal-image-container {
+    width: 100%;
+    height: 18rem;
+    position: relative;
+}
+
+ .modal-image {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.modal-image-heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Anton SC', sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    width: 90%;
+}
+
+.modal-details-container {
+    
+    height: 10rem;
+
+}
+
+
+.details-form {
+    padding: 1.5rem;
+    height: inherit;
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.details-form-choose-portion {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: white;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    border-radius: 0.5rem;
+}
+
+.details-form-choose-curry {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: white;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    border-radius: 0.5rem;
+}
+
+.details-form-choose-size {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: white;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    border-radius: 0.5rem;
+}
+
+.details-form-choose-spice-level {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: white;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    border-radius: 0.5rem;
+}
+
+.details-buttons {
+
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 0.5rem;
+
+    display: grid;
+    column-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+
+}
+
+.quantity-selector {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    width: 100%;
+    height: 3rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1.5rem;
+    color: black;
+
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    justify-self: center;
+    
+}
+
+.quantity-button-minus {
+    background-color: #DFBA13;
+    border: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.quantity-button-plus {
+    background-color: #DFBA13;
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    grid-column-start: 5;
+    grid-column-end: 6;
+}
+
+.quantity-button:hover {
+    background-color: #c8a712;
+}
+
+.quantity-count {
+    min-width: 2rem;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+.details-button-add-to-cart {
+    background-color: #DFBA13;
+    border: none;
+    width: 100%;
+    height: 3rem;
+    border-radius: 0.5rem;
+    font-family: 'Afacad', sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    justify-self: center;
+}
+
+.details-button-default:hover {
+    cursor: pointer;
+    background-color: #c8a712;
+}
+
+.details-button-add-to-cart:hover {
+    cursor: pointer;
+    background-color: #c8a712;
+}
+
+
+@media all and (min-width: 320px) and (max-width: 850px) {
+
+    .modal-content {
+        background: #8f002e;
+        width: 60%;
+        height: 37rem;
+        position: relative;
+        border-radius: 0.5rem;
+    
+    }
+
+    .modal-details-container {
+    
+        height: 17rem;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+    
+    }
+
+    .details-form {
+        padding: 1.5rem;
+        height: inherit;
+        display: grid;
+        column-gap: 1rem;
+        row-gap: 1rem;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+    
+    .details-form-choose-portion {
+        grid-column-start: 1;
+        grid-column-end: 9;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        background-color: white;
+    
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 1fr;
+        border-radius: 0.5rem;
+    }
+    
+    .details-form-choose-curry {
+        grid-column-start: 1;
+        grid-column-end: 9;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background-color: white;
+    
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 1fr;
+        border-radius: 0.5rem;
+    }
+    
+    .details-form-choose-size {
+        grid-column-start: 1;
+        grid-column-end: 9;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        background-color: white;
+    
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 1fr;
+        border-radius: 0.5rem;
+    }
+    
+    .details-form-choose-spice-level {
+        grid-column-start: 1;
+        grid-column-end: 9;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        background-color: white;
+    
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 1fr;
+        border-radius: 0.5rem;
+    }
+
+    .details-buttons {
+
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 0.5rem;
+    
+        display: grid;
+        row-gap: 1rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+    
+    }
+
+    .quantity-selector {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr;
+        width: 70%;
+        height: 3rem;
+        background-color: white;
+        border-radius: 0.5rem;
+        font-family: 'Afacad', sans-serif;
+        font-size: 1.5rem;
+        color: black;
+    
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    
+        justify-self: center;
+        
+    }
+
+    .quantity-button-minus {
+        background-color: #DFBA13;
+        border: none;
+        border-radius: 0.5rem 0 0 0.5rem;
+        font-size: 1.5rem;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+    
+    .quantity-button-plus {
+        background-color: #DFBA13;
+        border: none;
+        border-radius: 0 0.5rem 0.5rem 0;
+        font-size: 1.5rem;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    
+        grid-column-start: 5;
+        grid-column-end: 6;
+    }
+
+    
+    .quantity-count {
+        min-width: 2rem;
+        text-align: center;
+        align-self: center;
+        justify-self: center;
+    
+        grid-column-start: 2;
+        grid-column-end: 5;
+    }
+
+    .details-button-add-to-cart {
+        background-color: #DFBA13;
+        border: none;
+        width: 70%;
+        height: 3rem;
+        border-radius: 0.5rem;
+        font-family: 'Afacad', sans-serif;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: white;
+    
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    
+        justify-self: center;
+    }
+    
+
+}

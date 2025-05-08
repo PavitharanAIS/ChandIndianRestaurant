@@ -1,0 +1,343 @@
+ @import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+li, a {
+    font-family: "Afacad", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.header {
+    padding: 1rem 3rem;
+    background-color: #8f002e;
+    display: grid;
+    align-items: center;
+
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 1fr;
+
+}
+
+.nav-reservations {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.nav-order-online {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: center;
+}
+
+.nav-logo {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: center;
+}
+
+.nav-location {
+    grid-column-start: 7;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: center;
+}
+
+.nav-menu-icon {
+    position: relative;
+    display: inline-block;
+    grid-column-start: 10;
+    grid-column-end: 11;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: right;
+}
+
+.logo-link {
+    text-align: center;
+}
+
+.logo-img {
+    width: 6rem;
+}
+
+/* Underline effect on hover */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a {
+    position: relative;
+}
+
+.location-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+}
+
+.location-btn {
+    background-color: #DFBA13;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'Afacad', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.location-btn:hover {
+    background-color: #c8a712;
+    cursor: pointer;
+}
+
+.down-arrow-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 0.5rem;
+    vertical-align: text-top;
+}
+
+.nav-cart-icon {
+    grid-column-start: 9;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: right;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+}
+
+.nav-cart-icon i {
+    color: white;
+    font-family: 'Afacad', sans-serif;
+    cursor: pointer;
+}
+
+.nav-cart-count {
+    grid-column-start: 9;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    justify-self: right;
+    margin-bottom: 2rem;
+}
+
+.cart-count {
+    color: white;
+    font-size: 1rem;
+    font-family: 'Afacad', sans-serif;
+    font-weight: bold;    
+ }
+
+.menu-btn {
+
+    background-color: #DFBA13;
+    padding: 0.4rem 0.5rem;
+    color: white;
+    font-family: 'Afacad', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn:hover {
+    background-color: #c8a712;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    align-self: center;
+    justify-self: center;
+
+}
+
+/* Sliding Nav */
+.sliding-nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Initially offscreen */
+    width: 32rem;
+    height: 100%;
+    background-color:#DFBA13;
+    transition: right 0.4s ease-in-out; /* Smooth sliding effect */
+    z-index: 1000;
+}
+
+.sliding-nav.open {
+    right: 0; /* When open, slide in */
+}
+
+.sliding-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75); /* Darkened backdrop */
+    z-index: 999; /* Behind the sliding menu */
+    display: none;
+}
+
+.sliding-nav.open + .sliding-nav-overlay {
+    display: block; /* Show overlay when nav is open */
+}
+
+/* Close Button (X) */
+.close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 3.5rem;
+    background: none;
+    border: none;
+    color:#8f002e;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close-btn:hover {
+    color:white;
+}
+
+/* Links inside the sliding nav */
+.sliding-nav-links {
+    list-style: none;
+    padding-top: 5rem; /* Pushes the links down to avoid overlap with close button */
+    text-align: left;
+}
+
+.sliding-nav-links li {
+    margin: 20px 0;
+}
+
+.sliding-nav-links a {
+    display: block;
+    padding: 1rem;
+    color:#8f002e;
+    font-family: 'Anton SC', sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: background-color 0.3s;
+    border-bottom: #8f002e solid 1.5px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+
+.sliding-nav-links a:hover {
+    background-color:white;
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    .nav-links {
+      display: none;
+    }
+
+    .nav-location {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        justify-self: left;
+    }
+
+  }
+
+  @media all and (min-width: 320px) and (max-width: 767px) {
+
+    .header {
+        padding: 1rem 1rem;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .nav-logo {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    
+        justify-self: left;
+    }
+
+    .nav-location {
+        grid-column-start: 3;
+        grid-column-end: 7;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    
+        justify-self: right;
+    }
+
+    .nav-cart-icon {
+        grid-column-start: 8;
+        grid-column-end: 9;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .nav-cart-count {
+        grid-column-start: 8;
+        grid-column-end: 9;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .nav-menu-icon {
+        grid-column-start: 9;
+        grid-column-end: 11;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    
+        justify-self: right;
+    }
+
+    .sliding-nav {
+        width: 20rem;
+        height: 100%;
+    }
+
+  }
