@@ -9,10 +9,8 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping
 import { useState } from 'react';
 
 function NavBar({ preferredRestaurant, onLocationBtnClick, cartCount }) {
-    // State to manage the sliding nav visibility
     const [isNavOpen, setIsNavOpen] = useState(false);
 
-    // Function to toggle nav visibility
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
     };

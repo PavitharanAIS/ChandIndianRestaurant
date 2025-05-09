@@ -5,14 +5,9 @@ import '../css/ChoosePortionDropDown.css';
 
 const   ChoosePortionDropDown = ({ selectedPortion, setSelectedPortion }) => {
 
-// Initialize state to store selected restaurant
-    //   const [selectedCurry, setSelectedCurry] = useState('');
-    
-      // Array of restaurant options
       const portions = ['Half', 'Full'];
     
-      // Handle selection change
-      const handleSelect = (event) => {
+            const handleSelect = (event) => {
         setSelectedPortion(event.target.value);
       };
 

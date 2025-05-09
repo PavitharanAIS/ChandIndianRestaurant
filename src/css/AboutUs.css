@@ -27,11 +27,11 @@
 
 .section-title-1 {
     background-image: url("../images/about-us-bg.png");
-    background-size: 9rem 3rem; /* Adjust to cover the entire div */
+    background-size: 9rem 3rem; 
     background-repeat:no-repeat;
-    background-position: left center; /* Align the image to the left side */
+    background-position: left center; 
     width: 10rem;
-    height: 3rem; /* Adjust the height according to your needs */
+    height: 3rem; 
     position: relative;
     z-index: 1000;
     justify-content: center;
@@ -42,11 +42,11 @@
 
 .section-title-2, .section-title-3, .section-title-4, .section-title-5 {
     background-image: url("../images/about-us-bg.png");
-    background-size: cover; /* Adjust to cover the entire div */
+    background-size: cover; 
     background-repeat: no-repeat;
-    background-position: left center; /* Align the image to the left side */
+    background-position: left center; 
     width: 15rem;
-    height: 3rem; /* Adjust the height according to your needs */
+    height: 3rem; 
     position: relative;
     z-index: 1000;
     justify-content: center;
@@ -56,14 +56,14 @@
 
 .section-title h2 {
     position: absolute;
-    top: 50%; /* Centers the text vertically */
-    left: 50%; /* Centers the text horizontally */
-    transform: translate(-50%, -50%); /* Adjusts for perfect centering */
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     font-family: 'Anton SC', sans-serif;
     color: #8F002E;
     font-size: 2rem;
     text-align: left;
-    z-index: 1001; /* Ensures text is above the background */
+    z-index: 1001; 
 }
 
 .section-style h2 {
@@ -93,18 +93,6 @@
 
     margin-top: 3rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -28,8 +28,5 @@
     color: black;
 }
 
-/* Hide the calendar icon in webkit-based browsers (Chrome, Safari, Edge) */
-/* input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-  } */
+
   

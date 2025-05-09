@@ -6,13 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const   ChooseCurryDropDown = ({ selectedCurry, setSelectedCurry }) => {
 
-// Initialize state to store selected restaurant
-    //   const [selectedCurry, setSelectedCurry] = useState('');
     
       // Array of restaurant options
       const curries = ['Madras Chicken', 'Korma Chicken', 'Tikka Masala Chicken', 'Rogan Josh Chicken'];
     
-      // Handle selection change
+      // Handle selection chang
       const handleSelect = (event) => {
         setSelectedCurry(event.target.value);
       };

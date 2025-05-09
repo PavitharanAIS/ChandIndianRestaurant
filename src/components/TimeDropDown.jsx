@@ -4,10 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 const TimeDropDown = () => {
-  // Initialize state to store selected time
+ 
   const [selectedTime, setSelectedTime] = useState('');
 
-  // Function to generate time options (30-minute intervals)
   const generateTimeOptions = () => {
     const times = [];
     for (let hour = 0; hour < 24; hour++) {
@@ -20,7 +19,7 @@ const TimeDropDown = () => {
     return times;
   };
 
-  // Handle selection change
+
   const handleSelect = (event) => {
     setSelectedTime(event.target.value);
   };

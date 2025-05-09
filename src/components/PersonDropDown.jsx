@@ -6,13 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const   PersonDropdown = () => {
 
-// Initialize state to store selected restaurant
+
       const [selectedPerson, setSelectedPerson] = useState('');
     
-      // Array of restaurant options
+  
       const persons = ['1','2','3','4','5','6','7','8','9','10'];
     
-      // Handle selection change
+    
       const handleSelect = (event) => {
         setSelectedPerson(event.target.value);
       };

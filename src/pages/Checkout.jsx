@@ -10,9 +10,9 @@ import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 function Checkout() {
 
-    const [restaurantName, setRestaurantName] = useState(''); // Default empty
+    const [restaurantName, setRestaurantName] = useState(''); 
     const [address, setAddress] = useState('');
-    const [deliveryOption, setDeliveryOption] = useState('pickup'); // Default pickup option
+    const [deliveryOption, setDeliveryOption] = useState('pickup');
     const [quantity, setQuantity] = useState(1);
     const [paymentMethod, setPaymentMethod] = useState('');
     const [isAgreed, setIsAgreed] = useState('');

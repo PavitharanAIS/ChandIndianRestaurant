@@ -46,7 +46,7 @@ function Home() {
                 <div className="banner">
 
                     <div className="banner-container">
-                        {/* <img className="banner-img" src="images/BannerImg.jpg" alt="Banner" /> */}
+                    
                         <video className="banner-video" autoPlay loop muted>
                                 <source src="videos/BannerVideo.mp4" type="video/mp4" />
                         </video>

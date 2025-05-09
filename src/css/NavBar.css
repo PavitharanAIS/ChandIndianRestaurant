@@ -195,16 +195,16 @@ li, a {
 .sliding-nav {
     position: fixed;
     top: 0;
-    right: -100%; /* Initially offscreen */
+    right: -100%; 
     width: 32rem;
     height: 100%;
     background-color:#DFBA13;
-    transition: right 0.4s ease-in-out; /* Smooth sliding effect */
+    transition: right 0.4s ease-in-out; 
     z-index: 1000;
 }
 
 .sliding-nav.open {
-    right: 0; /* When open, slide in */
+    right: 0; 
 }
 
 .sliding-nav-overlay {
@@ -213,16 +213,16 @@ li, a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.75); /* Darkened backdrop */
-    z-index: 999; /* Behind the sliding menu */
+    background-color: rgba(0, 0, 0, 0.75); 
+    z-index: 999; 
     display: none;
 }
 
 .sliding-nav.open + .sliding-nav-overlay {
-    display: block; /* Show overlay when nav is open */
+    display: block;
 }
 
-/* Close Button (X) */
+
 .close-btn {
     position: absolute;
     top: 2rem;
@@ -239,10 +239,10 @@ li, a {
     color:white;
 }
 
-/* Links inside the sliding nav */
+
 .sliding-nav-links {
     list-style: none;
-    padding-top: 5rem; /* Pushes the links down to avoid overlap with close button */
+    padding-top: 5rem; 
     text-align: left;
 }
 

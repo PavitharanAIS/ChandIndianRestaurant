@@ -138,7 +138,7 @@
     grid-column-end: 14;
     grid-row-start: 8;
     grid-row-end: 9;
-    justify-self: center; /* Center horizontally */
+    justify-self: center; 
 }
 
 .modal-button-enter-website-center button:hover {
@@ -203,7 +203,7 @@
         grid-column-end: 14;
         grid-row-start: 8;
         grid-row-end: 9;
-        justify-self: center; /* Center horizontally */
+        justify-self: center;
     }
 }
 
@@ -242,7 +242,7 @@
         grid-column-end: 14;
         grid-row-start: 8;
         grid-row-end: 9;
-        justify-self: center; /* Center horizontally */
+        justify-self: center;
     }
 }
 

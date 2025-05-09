@@ -1,5 +1,3 @@
-// 
-
 import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import AboutUs from './pages/AboutUs';
@@ -11,30 +9,30 @@ import ModalStart from './components/ModalStart';
 
 function App() {
 
-  const [isModalOpen, setIsModalOpen] = useState(true); // Modal open state
+  const [isModalOpen, setIsModalOpen] = useState(true); 
   const [preferredRestaurant, setPreferredRestaurant] = useState('');
 
       useEffect(() => {
         const savedRestaurant = localStorage.getItem('preferredRestaurant'); // **Fetch from localStorage**
         if (savedRestaurant) {
-            setPreferredRestaurant(savedRestaurant); // **Set state from localStorage**
-            setIsModalOpen(false); // **Close modal if there's a saved restaurant**
+            setPreferredRestaurant(savedRestaurant); 
+            setIsModalOpen(false); 
         }
     }, []);
 
     const handleRestaurantChange = (restaurant) => {
       setPreferredRestaurant(restaurant);
       localStorage.setItem('preferredRestaurant', restaurant); // **Save to localStorage**
-      setIsModalOpen(false); // Close the modal when a restaurant is selected
+      setIsModalOpen(false);
   };
 
     const openModalAgain = () => {
       setIsModalOpen(true);
-      setPreferredRestaurant(''); // Reset restaurant selection
+      setPreferredRestaurant('');
       localStorage.removeItem('preferredRestaurant'); // **Remove from localStorage**
   };
 
-  // const savedRestaurant = localStorage.getItem('preferredRestaurant'); // **Fetch from localStorage**
+
 
 
 

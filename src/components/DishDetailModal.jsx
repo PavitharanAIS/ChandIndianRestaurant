@@ -35,19 +35,19 @@ function DishDetailModal({ dish, onClose, setCartCount }) {
             portion: selectedPortion
         };
 
-       // 1️⃣ Get existing cart
+  
        const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
 
-       // 2️⃣ Add new item
+
        existingCart.push(cartItem);
 
-       // 3️⃣ Save updated cart
+    
        localStorage.setItem('cart', JSON.stringify(existingCart));
 
-       // 4️⃣ Update cart count immediately
+    
        setCartCount(existingCart.length);
 
-       // 5️⃣ Close the modal
+   
        onClose();
     };
 

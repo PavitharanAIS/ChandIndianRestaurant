@@ -5,13 +5,9 @@ import '../css/ChooseSpiceDropDown.css';
 
 const   ChooseSpiceDropDown = ({ selectedSpice, setSelectedSpice }) => {
 
-// Initialize state to store selected restaurant
-    //   const [selectedSpice, setSelectedSpice] = useState('');
-    
-      // Array of restaurant options
+
       const spices = ['Mild', 'Medium', 'Hot'];
     
-      // Handle selection change
       const handleSelect = (event) => {
         setSelectedSpice(event.target.value);
       };

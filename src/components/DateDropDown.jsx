@@ -23,9 +23,7 @@ const DateDropDown = () => {
                 onChange={handleDateChange}
                 className="form-date-drop-down"
                 />
-                {/* <div className="selected-date">
-                <p>Selected Date: {selectedDate || 'None selected'}</p>
-                </div> */}
+               
             </>
             
   );

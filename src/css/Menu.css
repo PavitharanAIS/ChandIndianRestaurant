@@ -20,11 +20,11 @@
     font-size: 2rem;
     text-align: left;
     background-image: url("../images/about-us-bg.png");
-    background-size: 9rem 3rem; /* Adjust to cover the entire div */
+    background-size: 9rem 3rem; 
     background-repeat:no-repeat;
-    background-position: left center; /* Align the image to the left side */
+    background-position: left center; 
     width: 10rem;
-    height: 3rem; /* Adjust the height according to your needs */
+    height: 3rem; 
     position: relative;
     z-index: 1000;
     justify-content: center;

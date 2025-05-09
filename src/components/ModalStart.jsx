@@ -5,14 +5,12 @@ import { useState} from 'react';
 
 const ModalStart = ({ onRestaurantSelect }) => {
 
-    // Initialize state to store selected restaurant
+  
           const [preferredRestaurant, setPreferredRestaurant] = useState('');
         
-          // Array of restaurant options
+         
           const restaurants = ['Torbay','Rothesay Bay'];
 
-
-          // Handle selection change
           const handleSelect = (event) => {
             setPreferredRestaurant(event.target.value);
           };

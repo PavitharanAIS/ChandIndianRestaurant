@@ -1,4 +1,3 @@
-import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import dishes from '../data/dishes';
 import DishDetailModal from '../components/DishDetailModal';

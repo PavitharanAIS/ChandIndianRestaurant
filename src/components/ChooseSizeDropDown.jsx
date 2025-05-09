@@ -5,13 +5,9 @@ import '../css/ChooseSizeDropDown.css';
 
 const   ChooseSizeDropDown = ({ selectedSize, setSelectedSize }) => {
 
-// Initialize state to store selected restaurant
-    //   const [selectedSize, setSelectedSize] = useState('');
-    
-      // Array of restaurant options
+
       const sizes = ['Regular', 'Medium', 'Large'];
     
-      // Handle selection change
       const handleSelect = (event) => {
         setSelectedSize(event.target.value);
       };
