@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import AboutUs from './pages/AboutUs';
 import Menu from './pages/Menu';
 import Checkout from './pages/Checkout';
+import Feedback from './pages/Feedback';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ModalStart from './components/ModalStart';
@@ -57,6 +58,8 @@ function App() {
         <Route path="/pages/AboutUs" element={<AboutUs />} />
         <Route path="/pages/Menu" element={<Menu setCartCount={setCartCount} />} />
         <Route path="/pages/Checkout" element={<Checkout setCartCount={setCartCount} />} />
+        <Route path="/pages/Feedback" element={<Feedback setCartCount={setCartCount} />} />
+
       </Routes>
 
     </main>

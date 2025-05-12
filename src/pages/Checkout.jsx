@@ -16,6 +16,17 @@ function Checkout() {
     const [quantity, setQuantity] = useState(1);
     const [paymentMethod, setPaymentMethod] = useState('');
     const [isAgreed, setIsAgreed] = useState('');
+    const [cart, setCart] = useState([]);
+
+    const handleQuantityChange = (index, change) => {
+    setCart(prevCart => {
+        return prevCart.map((item, i) => {
+            if (i !== index) return item;
+            const newQuantity = Math.max(1, item.quantity + change); // Prevent going below 1
+            return { ...item, quantity: newQuantity };
+        });
+    });
+};
 
 
     useEffect(() => {
@@ -26,7 +37,31 @@ function Checkout() {
             setRestaurantName(storedName);
         }
 
+        const storedCart = localStorage.getItem('cart');
+
+
+        if (storedCart) {
+        try {
+            const parsedCart = JSON.parse(storedCart);
+            setCart(parsedCart);
+        } catch (err) {
+            console.error("Error parsing cart from localStorage:", err);
+        }
+
+        console.log(cart);
+
+    }
+
     }, []);
+
+    const subtotal = cart.reduce((acc, item) => {
+        const price = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
+        return acc + price * item.quantity;
+    }, 0);
+
+    const serviceFee = 2.99;
+    const surcharge = subtotal * 0.02;
+    const total = subtotal + serviceFee + surcharge;
 
 
     return (
@@ -96,7 +131,7 @@ function Checkout() {
                                     <button className='add-button'>Add</button>
                                 </div>
 
-                                <div className='order-description-container'>
+                                {/* <div className='order-description-container'>
                                     <div className='order-image-container'>
                                         <img className='order-image' src="../images//dishes/tandoori_chicken.jpg" alt="Logo" />
                                     </div>
@@ -127,7 +162,49 @@ function Checkout() {
                                         <p className='order-edit'>Edit</p>
                                     </div>
                                     <p className='order-price'>${quantity * 35.00}.00</p>
-                                </div>
+                                </div> */}
+
+
+                
+                                {cart.map((item, index) => {
+                                        const itemPrice = parseFloat(item.price.replace(/[^0-9.-]+/g,""));
+                                        const totalItemPrice = item.quantity * itemPrice;
+
+                                        return (
+                                            <div className='order-description-container' key={index}>
+                                                <div className='order-image-container'>
+                                                    <img className='order-image' src={item.image || '../images/placeholder.jpg'} alt={item.name} />
+                                                </div>
+                                                <div className='order-details-container'>
+                                                    <div className='order-name'><h3>{item.name}</h3></div>
+                                                    <div className='order-quantity-price'>
+                                                        <div className='order-counter-section'>
+                                                            <button className='order-counter-section-plus-btn' onClick={() => handleQuantityChange(index, -1)}>-</button>
+                                                            <span className='order-counter-section-quantity'>{item.quantity}</span>
+                                                            <button className='order-counter-section-minus-btn' onClick={() => handleQuantityChange(index, 1)}>+</button>
+                                                        </div>
+
+                                                        <div className='multiply-symbol-section'>
+                                                            <span className='multiply-symbol'>x</span>
+                                                        </div>
+
+                                                        <div className='dish-price-per-serving-section'>
+                                                            <span className='dish-price-per-serving'>{item.price}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className='order-details'>
+                                                        <p>Curry: {item.curry}</p>
+                                                        <p>Spice Level: {item.spiceLevel}</p>
+                                                        <p>Size: {item.size}</p>
+                                                        <p>Portion: {item.portion}</p>
+                                                    </div>
+                                                    <p className='order-edit'>Edit</p>
+                                                </div>
+                                                <p className='order-price'>${totalItemPrice.toFixed(2)}</p>
+                                            </div>
+                                        );
+                                })}
+
                                 
                     </div>
 
@@ -143,19 +220,19 @@ function Checkout() {
 
                             <div className='total-pay-subtotal-section'>
                                 <p className='subtotal-text'>Subtotal</p>
-                                <span className='subtotal-amount'>$35.00</span>
+                                <span className='subtotal-amount'>${subtotal.toFixed(2)}</span>
                             </div>
                         
                             <div className='total-pay-service-fee-section'>
                                 <p className='service-fee-text'>Service Fee</p>
-                                <span className='service-fee-amount'>$2.99</span>
+                                <span className='service-fee-amount'>${serviceFee.toFixed(2)}</span>
                             </div>
 
                         </div>
 
                         <div className='total-pay-amount-container'>
                             <p className='total-pay-text'>Total</p>
-                            <span className='total-pay-amount'>$37.99</span>
+                            <span className='total-pay-amount'>${total.toFixed(2)}</span>
                         </div>
                     </div>
 

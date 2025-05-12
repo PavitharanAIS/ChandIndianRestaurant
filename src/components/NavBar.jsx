@@ -78,7 +78,7 @@ function NavBar({ preferredRestaurant, onLocationBtnClick, cartCount }) {
                     <li onClick={toggleNav}><Link onClick={scrollToDineIn} >Locations</Link></li>
                     <li onClick={toggleNav}><Link onClick={scrollToReservation}>Reservation</Link></li>
                     <li onClick={toggleNav}><Link to="../pages/Menu">Order Online</Link></li>
-                    <li><Link to="/">Feedback</Link></li>
+                    <li onClick={toggleNav}><Link to="../pages/Feedback">Feedback</Link></li>
                     <li onClick={toggleNav}><Link to="../pages/AboutUs">About</Link></li>
                 </ul>
             </div>
