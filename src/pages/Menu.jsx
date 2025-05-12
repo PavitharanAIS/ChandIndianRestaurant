@@ -4,7 +4,7 @@ import DishDetailModal from '../components/DishDetailModal';
 import { useState } from 'react';
 import '../css/Menu.css';
 
-function Menu({setCartCount}) {
+function Menu({cart, setCart}) {
 
 
     const [selectedDish, setSelectedDish] = useState(null);
@@ -14,6 +14,19 @@ function Menu({setCartCount}) {
         setIsModalOpen(false);
         setSelectedDish(null);
     };
+
+    const handleAddToCart = (dish) => {
+  setCart(prevCart => {
+    const dishIndex = prevCart.findIndex(item => item.id === dish.id);
+    if (dishIndex !== -1) {
+      const updatedCart = [...prevCart];
+      updatedCart[dishIndex].quantity += 1;
+      return updatedCart;
+    } else {
+      return [...prevCart, { ...dish, quantity: 1 }];
+    }
+  });
+};
 
     const renderDishCards = (category) => (
         dishes.filter(item => item.category === category).map(item => (
@@ -92,7 +105,9 @@ function Menu({setCartCount}) {
                 <DishDetailModal 
                     dish={selectedDish} 
                     onClose={handleCloseModal} 
-                    setCartCount={setCartCount}
+                    onAddToCart={handleAddToCart}
+                    cart={cart}
+                    setCart={setCart}
                 />
             )}
             

@@ -7,9 +7,32 @@ import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
-function NavBar({ preferredRestaurant, onLocationBtnClick, cartCount }) {
+function NavBar({ preferredRestaurant, onLocationBtnClick, cartCount, cart, setCart }) {
     const [isNavOpen, setIsNavOpen] = useState(false);
+    const [isCartOpen, setIsCartOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const handleQuantityChange = (index, change) => {
+        setCart(prevCart => {
+            return prevCart.map((item, i) => {
+                if (i !== index) return item;
+                const newQuantity = Math.max(1, item.quantity + change); // Prevent going below 1
+                return { ...item, quantity: newQuantity };
+            });
+        });
+    };
+
+    const toggleCart = () => {
+        setIsCartOpen(!isCartOpen);
+    };
+
+    const goToCheckout = () => {
+        toggleCart();
+        navigate('../pages/Checkout');
+    };
 
     const toggleNav = () => {
         setIsNavOpen(!isNavOpen);
@@ -28,6 +51,16 @@ function NavBar({ preferredRestaurant, onLocationBtnClick, cartCount }) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    
+    const subtotal = cart.reduce((acc, item) => {
+        const price = item.price ? parseFloat(item.price.replace(/[^0-9.-]+/g, "")) : 0;
+        return acc + price * item.quantity;
+    }, 0);
+
+    const serviceFee = 2.99;
+    const total = subtotal + serviceFee;
+    
 
     return (
         <header className="header">
@@ -52,16 +85,124 @@ function NavBar({ preferredRestaurant, onLocationBtnClick, cartCount }) {
             </div>
 
             <div className='nav-cart-icon'>
-                <Link to="../pages/Checkout">
-                    <i className='cart-btn'><FontAwesomeIcon className='menu-icon' icon={faCartShopping} /></i>
-                </Link>
+                <button className='cart-btn' onClick={toggleCart}>
+                    <FontAwesomeIcon className='cart-icon' icon={faCartShopping} />
+                </button>
             </div>
 
             <div className='nav-cart-count'>
-                <Link to="../pages/Checkout">
-                    <span className='cart-count'>{cartCount}</span>
-                </Link>     
+                    <span className='cart-count'>{cartCount}</span>    
             </div>
+
+            {/* Sliding Cart Panel */}
+            <div className={`sliding-cart ${isCartOpen ? 'open' : ''}`}>
+
+                <div className='sliding-cart-header'>
+
+                    <div className="cart-title">
+                        <h3>{preferredRestaurant}</h3>
+                    </div>
+                    <button className="cart-close-btn" onClick={toggleCart}>
+                        <FontAwesomeIcon icon={faTimes} />
+                    </button>
+                    
+                </div>
+
+                <div className='sliding-cart-summary'>
+                    <div className='sliding-cart-dishes'>
+
+                        {cart.map((item, index) => {
+                                        const itemPrice = item.price ? parseFloat(item.price.replace(/[^0-9.-]+/g, "")) : 0;
+                                        const totalItemPrice = item.quantity * itemPrice;
+
+                                        return (
+                                            <div className='order-description-container' key={index}>
+                                                <div className='order-image-container'>
+                                                    <img className='order-image' src={item.image || '../images/placeholder.jpg'} alt={item.name} />
+                                                </div>
+                                                <div className='order-details-container'>
+                                                    <div className='order-name'><h3>{item.name}</h3></div>
+                                                    <div className='order-quantity-price'>
+                                                        <div className='order-counter-section'>
+                                                            <button className='order-counter-section-plus-btn' onClick={() => handleQuantityChange(index, -1)}>-</button>
+                                                            <span className='order-counter-section-quantity'>{item.quantity}</span>
+                                                            <button className='order-counter-section-minus-btn' onClick={() => handleQuantityChange(index, 1)}>+</button>
+                                                        </div>
+
+                                                        <div className='multiply-symbol-section'>
+                                                            <span className='multiply-symbol'>x</span>
+                                                        </div>
+
+                                                        <div className='dish-price-per-serving-section'>
+                                                            <span className='dish-price-per-serving'>{item.price}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className='order-details'>
+                                                        <p>Curry: {item.curry}</p>
+                                                        <p>Spice Level: {item.spiceLevel}</p>
+                                                        <p>Size: {item.size}</p>
+                                                        <p>Portion: {item.portion}</p>
+                                                    </div>
+                                                    <p className='order-edit'>Edit</p>
+                                                </div>
+                                                <p className='order-price'>${totalItemPrice.toFixed(2)}</p>
+                                            </div>
+                                        );
+                                })}
+
+                    </div>
+
+                </div>
+
+                <div className='sliding-cart-deals'>
+
+                        <div className='sliding-deal-section'>
+                            <p className='sliding-deal-text'>Please select a deal below</p>
+                            <select className='sliding-deal-form'>
+                                <option value="0">Select Deal</option>
+                                <option value="1">Deal 1</option>
+                                <option value="2">Deal 2</option>
+                                <option value="3">Deal 3</option>
+                            </select>
+                        </div>
+                        <p className='sliding-or-text'>OR</p>
+                        <div className='sliding-voucher-code-section'>
+                            <input className='sliding-input-voucher-code' type="text" placeholder="Enter Voucher Code" required />
+                            <button className='sliding-add-button'>Add</button>
+                        </div>
+
+                </div>
+
+                <div className='sliding-total-pay-container'>
+
+                        <div className='sliding-total-pay-details-container'>
+
+                            <div className='sliding-total-pay-subtotal-section'>
+                                <p className='sliding-subtotal-text'>Subtotal</p>
+                                <span className='sliding-subtotal-amount'>${subtotal.toFixed(2)}</span>
+                            </div>
+                        
+                            <div className='sliding-total-pay-service-fee-section'>
+                                <p className='sliding-service-fee-text'>Service Fee</p>
+                                <span className='sliding-service-fee-amount'>${serviceFee.toFixed(2)}</span>
+                            </div>
+
+                        </div>
+
+                        <div className='sliding-total-pay-amount-container'>
+                            <p className='sliding-total-pay-text'>Total</p>
+                            <span className='sliding-total-pay-amount'>${total.toFixed(2)}</span>
+                        </div>
+                </div>
+
+                <div className='sliding-go-to-pay-container'>
+                    <button className='sliding-go-to-pay-btn' onClick={goToCheckout}>Go to Checkout</button>
+                </div>
+                
+            </div>
+
+            {/* Cart Overlay */}
+            <div className={`sliding-cart-overlay ${isCartOpen ? 'open' : ''}`} onClick={toggleCart}></div>
 
             <div className='nav-menu-icon'>
                 

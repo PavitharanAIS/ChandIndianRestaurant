@@ -6,7 +6,7 @@ import ChoosePortionDropDown from './ChoosePortionDropDown';
 import { useEffect, useRef, useState } from 'react';
 
 
-function DishDetailModal({ dish, onClose, setCartCount }) {
+function DishDetailModal({ dish, onClose, setCartCount, cart, setCart }) {
     const modalRef = useRef();
     const [quantity, setQuantity] = useState(1); // Counter state
     const [selectedCurry, setSelectedCurry] = useState('');
@@ -23,33 +23,40 @@ function DishDetailModal({ dish, onClose, setCartCount }) {
     };
 
     const handleAddToCart = () => {
-        const cartItem = {
-            id: dish.id,
-            name: dish.name,
-            image: dish.image,
-            price: dish.price,
-            quantity: quantity,
-            curry: selectedCurry,
-            size: selectedSize,
-            spiceLevel: selectedSpice,
-            portion: selectedPortion
-        };
-
-  
-       const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-
-
-       existingCart.push(cartItem);
-
-    
-       localStorage.setItem('cart', JSON.stringify(existingCart));
-
-    
-       setCartCount(existingCart.length);
-
-   
-       onClose();
+    const cartItem = {
+        id: dish.id,
+        name: dish.name,
+        image: dish.image,
+        price: dish.price,
+        quantity: quantity,
+        curry: selectedCurry,
+        size: selectedSize,
+        spiceLevel: selectedSpice,
+        portion: selectedPortion
     };
+
+    setCart(prevCart => {
+        const existingItemIndex = prevCart.findIndex(item =>
+            item.id === cartItem.id &&
+            item.curry === cartItem.curry &&
+            item.size === cartItem.size &&
+            item.spiceLevel === cartItem.spiceLevel &&
+            item.portion === cartItem.portion
+        );
+
+        if (existingItemIndex !== -1) {
+            const updatedCart = [...prevCart];
+            updatedCart[existingItemIndex].quantity += cartItem.quantity;
+            return updatedCart;
+        } else {
+            return [...prevCart, cartItem];
+        }
+    });
+
+    // Close the modal after adding to the cart
+    onClose();
+};
+
 
     useEffect(() => {
         const handleClickOutside = (event) => {

@@ -190,6 +190,7 @@
 
     font-family: 'Afacad', sans-serif;
     font-size: 1rem;
+    background-color: rgb(230, 230, 230);
 }
 
 .input-lastname {
@@ -201,6 +202,7 @@
 
     font-family: 'Afacad', sans-serif;
     font-size: 1rem;
+    background-color: rgb(230, 230, 230);
 }
 
 .input-email {
@@ -212,6 +214,7 @@
 
     font-family: 'Afacad', sans-serif;
     font-size: 1rem;
+    background-color: rgb(230, 230, 230);
 }
 
 .input-mobile {
@@ -223,6 +226,7 @@
 
     font-family: 'Afacad', sans-serif;
     font-size: 1rem;
+    background-color: rgb(230, 230, 230);
 }
 
 .input-address {
@@ -237,6 +241,7 @@
     font-size: 1rem;
     height: 5rem;
     resize: vertical;
+    background-color: rgb(230, 230, 230);
 }
 
 .order-summary-container {
@@ -306,6 +311,7 @@
     font-family: 'Afacad', sans-serif;
     font-size: 1rem;
     padding: 0.5rem;
+    background-color: rgb(230, 230, 230);
 }
 
 .add-button {
@@ -337,7 +343,7 @@
     grid-template-columns: 15% 1fr 15%;
     font-family: 'Afacad', sans-serif;
 
-    margin-top: 2.5rem;
+    margin-top: 1rem;
 }
 
 .order-image-container {

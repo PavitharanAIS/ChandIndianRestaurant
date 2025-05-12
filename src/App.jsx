@@ -34,16 +34,17 @@ function App() {
   };
 
 
-
-
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
 
   const [cartCount, setCartCount] = useState(0);
 
-  useEffect(() => {
-    // Read cart from localStorage (if it exists) when app first loads
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    setCartCount(cart.length);
-  }, []);
+   useEffect(() => {
+    setCartCount(cart.reduce((total, item) => total + item.quantity, 0)); // Sum up quantities for the cart count
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
+  }, [cart]);
 
   return (
     <main className="main-content">
@@ -51,15 +52,16 @@ function App() {
       {isModalOpen && <div className="home-overlay"></div>}
 
       {isModalOpen && <ModalStart onRestaurantSelect={handleRestaurantChange} />}
-      <NavBar preferredRestaurant={preferredRestaurant} onLocationBtnClick={openModalAgain} cartCount={cartCount} />
+      <NavBar preferredRestaurant={preferredRestaurant} onLocationBtnClick={openModalAgain} cartCount={cartCount} cart={cart} setCart={setCart} setCartCount={setCartCount}  />
+
+      
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pages/AboutUs" element={<AboutUs />} />
-        <Route path="/pages/Menu" element={<Menu setCartCount={setCartCount} />} />
-        <Route path="/pages/Checkout" element={<Checkout setCartCount={setCartCount} />} />
-        <Route path="/pages/Feedback" element={<Feedback setCartCount={setCartCount} />} />
-
+        <Route path="/pages/Menu" element={<Menu cart={cart} setCart={setCart} setCartCount={setCartCount} />} />
+        <Route path="/pages/Checkout" element={<Checkout setCart={setCart} />} />
+        <Route path="/pages/Feedback" element={<Feedback />} /> 
       </Routes>
 
     </main>

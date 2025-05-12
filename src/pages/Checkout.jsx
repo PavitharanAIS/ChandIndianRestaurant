@@ -60,8 +60,7 @@ function Checkout() {
     }, 0);
 
     const serviceFee = 2.99;
-    const surcharge = subtotal * 0.02;
-    const total = subtotal + serviceFee + surcharge;
+    const total = subtotal + serviceFee;
 
 
     return (
@@ -165,7 +164,6 @@ function Checkout() {
                                 </div> */}
 
 
-                
                                 {cart.map((item, index) => {
                                         const itemPrice = parseFloat(item.price.replace(/[^0-9.-]+/g,""));
                                         const totalItemPrice = item.quantity * itemPrice;
