@@ -1,14 +1,18 @@
 import '../css/Checkout.css';
 import Footer from '../components/Footer';
-import { useState, useEffect } from 'react';
+import DishDetailModal from '../components/DishDetailModal';
+import { useState, useEffect, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { faMobileScreen } from '@fortawesome/free-solid-svg-icons';
 import { faBuildingColumns} from '@fortawesome/free-solid-svg-icons';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from '../components/CartContext';
+
 
 function Checkout() {
+
+    const { cart, setCart } = useContext(CartContext);
 
     const [restaurantName, setRestaurantName] = useState(''); 
     const [address, setAddress] = useState('');
@@ -16,7 +20,12 @@ function Checkout() {
     const [quantity, setQuantity] = useState(1);
     const [paymentMethod, setPaymentMethod] = useState('');
     const [isAgreed, setIsAgreed] = useState('');
-    const [cart, setCart] = useState([]);
+    
+    
+
+    const [showModal, setShowModal] = useState(false);
+    const [editingDish, setEditingDish] = useState(null);
+    const [editingIndex, setEditingIndex] = useState(null);
 
     const handleQuantityChange = (index, change) => {
     setCart(prevCart => {
@@ -37,26 +46,18 @@ function Checkout() {
             setRestaurantName(storedName);
         }
 
-        const storedCart = localStorage.getItem('cart');
-
-
-        if (storedCart) {
-        try {
-            const parsedCart = JSON.parse(storedCart);
-            setCart(parsedCart);
-        } catch (err) {
-            console.error("Error parsing cart from localStorage:", err);
-        }
-
-        console.log(cart);
-
-    }
-
     }, []);
 
+
     const subtotal = cart.reduce((acc, item) => {
-        const price = parseFloat(item.price.replace(/[^0-9.-]+/g, ""));
-        return acc + price * item.quantity;
+    const priceString = item.price ?? "0"; // fallback if price is undefined
+    const numericPrice = parseFloat(
+        typeof priceString === "string"
+            ? priceString.replace(/[^0-9.-]+/g, "")
+            : priceString
+    );
+
+    return acc + numericPrice * (item.quantity || 1);
     }, 0);
 
     const serviceFee = 2.99;
@@ -132,7 +133,13 @@ function Checkout() {
 
 
                                 {cart.map((item, index) => {
-                                        const itemPrice = parseFloat(item.price.replace(/[^0-9.-]+/g,""));
+                                        const priceString = item.price ?? "0"; // fallback if undefined
+                                        const itemPrice = parseFloat(
+                                            typeof priceString === "string"
+                                                ? priceString.replace(/[^0-9.-]+/g, "")
+                                                : priceString
+                                        );
+
                                         const totalItemPrice = item.quantity * itemPrice;
 
                                         return (
@@ -163,7 +170,11 @@ function Checkout() {
                                                         <p>Size: {item.size}</p>
                                                         <p>Portion: {item.portion}</p>
                                                     </div>
-                                                    <p className='order-edit'>Edit</p>
+                                                    <button onClick={() => {
+                                                        setEditingDish(item);
+                                                        setEditingIndex(index);
+                                                        setShowModal(true);
+                                                    }} className='order-edit'>Edit</button>
                                                 </div>
                                                 <p className='order-price'>${totalItemPrice.toFixed(2)}</p>
                                             </div>
@@ -299,6 +310,16 @@ function Checkout() {
             </div>
 
             <Footer /> 
+
+            {showModal && (
+            <DishDetailModal
+                dish={editingDish}
+                editingIndex={editingIndex}
+                onClose={() => setShowModal(false)}
+                cart={cart}
+                setCart={setCart}
+            />
+            )}
 
         </>
         

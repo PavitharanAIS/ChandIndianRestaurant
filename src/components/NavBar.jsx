@@ -6,14 +6,18 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
+import { CartContext } from './CartContext';
 
-function NavBar({ preferredRestaurant, onLocationBtnClick, cartCount, cart, setCart }) {
+function NavBar({ preferredRestaurant, onLocationBtnClick }) {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const navigate = useNavigate();
+
+    const { cart, setCart } = useContext(CartContext);
+
+    const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
 
     const handleQuantityChange = (index, change) => {
         setCart(prevCart => {

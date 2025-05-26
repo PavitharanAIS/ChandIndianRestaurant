@@ -3,16 +3,21 @@ import ChooseCurryDropDown from './ChooseCurryDropDown';
 import ChooseSizeDropDown from './ChooseSizeDropDown';
 import ChooseSpiceDropDown from './ChooseSpiceDropDown';
 import ChoosePortionDropDown from './ChoosePortionDropDown';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useContext } from 'react';
+import { CartContext } from './CartContext';
 
 
-function DishDetailModal({ dish, onClose, setCartCount, cart, setCart }) {
+function DishDetailModal({ dish, onClose, editingIndex }) {
+
+    const { cart, setCart } = useContext(CartContext);
+
     const modalRef = useRef();
     const [quantity, setQuantity] = useState(1); // Counter state
     const [selectedCurry, setSelectedCurry] = useState('');
     const [selectedSize, setSelectedSize] = useState('');
     const [selectedSpice, setSelectedSpice] = useState('');
     const [selectedPortion, setSelectedPortion] = useState('');
+    const [price, setPrice] = useState(dish.price || 0);
 
     const handleIncrement = () => {
         setQuantity(prev => prev + 1);
@@ -23,39 +28,29 @@ function DishDetailModal({ dish, onClose, setCartCount, cart, setCart }) {
     };
 
     const handleAddToCart = () => {
-    const cartItem = {
-        id: dish.id,
-        name: dish.name,
-        image: dish.image,
-        price: dish.price,
-        quantity: quantity,
+        const updatedItem = {
+        ...dish,
+        quantity,
         curry: selectedCurry,
         size: selectedSize,
         spiceLevel: selectedSpice,
-        portion: selectedPortion
+        portion: selectedPortion,
+        price: price
     };
 
     setCart(prevCart => {
-        const existingItemIndex = prevCart.findIndex(item =>
-            item.id === cartItem.id &&
-            item.curry === cartItem.curry &&
-            item.size === cartItem.size &&
-            item.spiceLevel === cartItem.spiceLevel &&
-            item.portion === cartItem.portion
-        );
-
-        if (existingItemIndex !== -1) {
-            const updatedCart = [...prevCart];
-            updatedCart[existingItemIndex].quantity += cartItem.quantity;
-            return updatedCart;
-        } else {
-            return [...prevCart, cartItem];
+        if (editingIndex === undefined || editingIndex < 0 || editingIndex >= prevCart.length) {
+            // Optionally add new item if editingIndex is invalid:
+            return [...prevCart, updatedItem];
         }
+        const updatedCart = [...prevCart];
+        updatedCart[editingIndex] = updatedItem;
+        return updatedCart;
     });
 
-    // Close the modal after adding to the cart
     onClose();
-};
+    };
+
 
 
     useEffect(() => {
@@ -70,6 +65,28 @@ function DishDetailModal({ dish, onClose, setCartCount, cart, setCart }) {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [onClose]);
+
+    useEffect(() => {
+    if (dish) {
+        setQuantity(dish.quantity || 1);
+        setSelectedCurry(dish.curry || '');
+        setSelectedSize(dish.size || '');
+        setSelectedSpice(dish.spiceLevel || '');
+        setSelectedPortion(dish.portion || '');
+    }
+    }, [dish]);
+
+    useEffect(() => {
+    if (dish) {
+        if (selectedPortion === 'Half' && dish.priceHalf !== undefined) {
+            setPrice(dish.priceHalf);
+        } else if (selectedPortion === 'Full' && dish.priceFull !== undefined) {
+            setPrice(dish.priceFull);
+        } else {
+            setPrice(dish.price);
+        }
+    }
+    }, [selectedPortion, dish]);
 
     return (
         <div className="modal-overlay">
