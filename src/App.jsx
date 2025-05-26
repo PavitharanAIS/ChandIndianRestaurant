@@ -12,6 +12,7 @@ import Mains from './pages/Mains';
 import Desserts from './pages/Desserts';
 import Drinks from './pages/Drinks';
 
+
 function App() {
 
   const [isModalOpen, setIsModalOpen] = useState(true); 
@@ -50,6 +51,8 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
   }, [cart]);
 
+
+
   return (
     <main className="main-content">
 
@@ -71,6 +74,8 @@ function App() {
         <Route path="/pages/Desserts" element={<Desserts cart={cart} setCart={setCart} setCartCount={setCartCount} />} />
         <Route path="/pages/Drinks" element={<Drinks cart={cart} setCart={setCart} setCartCount={setCartCount} />} />
       </Routes>
+
+      
 
     </main>
   );
