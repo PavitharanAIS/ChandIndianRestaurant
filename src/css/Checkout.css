@@ -24,10 +24,12 @@
 }
 
 .checkout-payment {
+    height: fit-content;
     background-color: white;
     border-radius: 0.5rem;
     margin-right: 1.5rem;
     padding-top: 1rem;
+    padding-bottom: 1.5rem;
 
     grid-column-start: 2;
     grid-column-end: 3;
@@ -878,7 +880,7 @@
 
         column-gap: unset;
         row-gap: 1rem;
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: repeat(2, object-fit);
         grid-template-columns: 100%;
         
     }

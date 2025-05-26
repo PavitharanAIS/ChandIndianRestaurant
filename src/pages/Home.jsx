@@ -1,4 +1,5 @@
 import '../css/Home.css'
+import { Link } from "react-router-dom";
 import LocationDropdown from '../components/LocationDropDown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -77,23 +78,23 @@ function Home() {
                     <div className="menu-items-container">
 
                         <div>
-                            <div className="menu-item-type menu-item-starters"></div>
-                            <div className='menu-item-type-text'>STARTERS</div>
+                            <Link to="../pages/Starters"><div className="menu-item-type menu-item-starters"></div>
+                            <div className='menu-item-type-text'>STARTERS</div></Link>
                         </div>
                         
                         <div>
-                            <div className="menu-item-type menu-item-mains"></div>
-                            <div className='menu-item-type-text'>MAINS</div>
+                            <Link to="../pages/Mains"><div className="menu-item-type menu-item-mains"></div>
+                            <div className='menu-item-type-text'>MAINS</div></Link>
                         </div>
                         
                         <div>
-                            <div className="menu-item-type menu-item-desserts"></div>
-                            <div className='menu-item-type-text'>DESSERTS</div>
+                            <Link to="../pages/Desserts"><div className="menu-item-type menu-item-desserts"></div>
+                            <div className='menu-item-type-text'>DESSERTS</div></Link>
                         </div>
 
                         <div>
-                            <div className="menu-item-type menu-item-drinks"></div>
-                            <div className='menu-item-type-text'>DRINKS</div>
+                            <Link to="../pages/Drinks"><div className="menu-item-type menu-item-drinks"></div>
+                            <div className='menu-item-type-text'>DRINKS</div></Link>
                         </div>
                         
                     </div>

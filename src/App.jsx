@@ -7,6 +7,10 @@ import Feedback from './pages/Feedback';
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ModalStart from './components/ModalStart';
+import Starters from './pages/Starters';
+import Mains from './pages/Mains';
+import Desserts from './pages/Desserts';
+import Drinks from './pages/Drinks';
 
 function App() {
 
@@ -62,6 +66,10 @@ function App() {
         <Route path="/pages/Menu" element={<Menu cart={cart} setCart={setCart} setCartCount={setCartCount} />} />
         <Route path="/pages/Checkout" element={<Checkout setCart={setCart} />} />
         <Route path="/pages/Feedback" element={<Feedback />} /> 
+        <Route path="/pages/Starters" element={<Starters cart={cart} setCart={setCart} setCartCount={setCartCount} />} />
+        <Route path="/pages/Mains" element={<Mains cart={cart} setCart={setCart} setCartCount={setCartCount} />} />
+        <Route path="/pages/Desserts" element={<Desserts cart={cart} setCart={setCart} setCartCount={setCartCount} />} />
+        <Route path="/pages/Drinks" element={<Drinks cart={cart} setCart={setCart} setCartCount={setCartCount} />} />
       </Routes>
 
     </main>

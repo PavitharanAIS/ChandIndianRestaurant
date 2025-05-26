@@ -130,39 +130,6 @@ function Checkout() {
                                     <button className='add-button'>Add</button>
                                 </div>
 
-                                {/* <div className='order-description-container'>
-                                    <div className='order-image-container'>
-                                        <img className='order-image' src="../images//dishes/tandoori_chicken.jpg" alt="Logo" />
-                                    </div>
-                                    <div className='order-details-container'>
-                                        <div className='order-name'><h3>Tandoori Chicken</h3></div>
-                                        <div className='order-quantity-price'>
-                                            <div className='order-counter-section'>
-                                                <button className='order-counter-section-plus-btn' onClick={() => setQuantity(prev => Math.max(1, prev - 1))}>-</button>
-                                                <span className='order-counter-section-quantity'>{quantity}</span>
-                                                <button className='order-counter-section-minus-btn' onClick={() => setQuantity(prev => prev + 1)}>+</button>
-                                            </div>
-
-                                            <div className='multiply-symbol-section'>
-                                                <span className='multiply-symbol'>x</span>
-                                            </div>
-
-                                            <div className='dish-price-per-serving-section'>
-                                                <span className='dish-price-per-serving'>$35.00</span>
-                                            </div>
-                                            
-                                        </div>
-                                        <div className='order-details'>
-                                            <p>Curry: Rogan Josh Chicken</p>
-                                            <p>Spice Level: Mild</p>
-                                            <p>Size: Large</p>
-                                            <p>Portion: Full</p>
-                                        </div>
-                                        <p className='order-edit'>Edit</p>
-                                    </div>
-                                    <p className='order-price'>${quantity * 35.00}.00</p>
-                                </div> */}
-
 
                                 {cart.map((item, index) => {
                                         const itemPrice = parseFloat(item.price.replace(/[^0-9.-]+/g,""));
@@ -282,7 +249,7 @@ function Checkout() {
                                     
                                 
                             </div>
-                            <div className='radio-btn-elements'>
+                            {/* <div className='radio-btn-elements'>
                                     <input className='afterpay-btn radio elements'
                                     type="radio"
                                     name="payment"
@@ -295,13 +262,13 @@ function Checkout() {
 
                                     <p className='payment-info'>Eat now pay later</p>
                             
-                            </div>
+                            </div> */}
 
-                            <div className='afterpay-description-container'>
+                            {/* <div className='afterpay-description-container'>
                                 <p className='afterpay-badge-description'>or 4 interest-free payments of $10.71 with</p>
                                 <img className='afterpay-badge' src='../images/Afterpay_Badge_BlackonMint.jpg'></img>
                                 <FontAwesomeIcon className='afterpay-description-info-icon' icon={faCircleInfo} />
-                            </div>
+                            </div> */}
 
                             <div className='surcharge-warning-container'>
                                 <p className='surcharge-text'>There will be an extra 2.00% surcharge for online payment processing (for payments made by all Eftpos Debit Cards & Credit Cards) - Extra 2.00% surcharge on this order will be $0.75</p>
