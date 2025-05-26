@@ -126,7 +126,6 @@
     column-gap: 1rem;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-
 }
 
 .quantity-selector {
@@ -139,9 +138,12 @@
     font-family: 'Afacad', sans-serif;
     font-size: 1.5rem;
     color: black;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
 
     grid-column-start: 1;
     grid-column-end: 2;
+
+    width: 100%;
     
 }
 
@@ -158,6 +160,11 @@
     grid-column-end: 2;
 }
 
+.quantity-button-minus:hover {
+    background-color: #c8a712;
+    cursor: pointer;
+}
+
 .quantity-button-plus {
     background-color: #DFBA13;
     border: none;
@@ -172,8 +179,9 @@
 
 }
 
-.quantity-button:hover {
+.quantity-button-plus:hover {
     background-color: #c8a712;
+    cursor: pointer;
 }
 
 .quantity-count {
@@ -196,6 +204,7 @@
     font-size: 1.3rem;
     font-weight: bold;
     color: white;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
 
     grid-column-start: 2;
     grid-column-end: 3;

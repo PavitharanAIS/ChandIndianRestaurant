@@ -104,6 +104,10 @@
     align-self: center;
 }
 
+.pickup-takeaway-buttons button:hover {
+    cursor: pointer;
+}
+
 .pickup-takeaway-buttons button {
     font-family: 'Afacad', sans-serif;
     font-size: 1rem;
@@ -434,6 +438,11 @@
     border-radius: 0.25rem;
 }
 
+.order-counter-section-plus-btn:hover {
+    cursor: pointer;
+    background-color: #7e0028;
+}
+
 .order-counter-section-quantity {
     grid-column-start: 2;
     grid-column-end: 3;
@@ -451,6 +460,11 @@
     color: white;
     border: none;
     border-radius: 0.25rem;
+}
+
+.order-counter-section-minus-btn:hover {
+    cursor: pointer;
+    background-color: #7e0028;
 }
 
 .multiply-symbol-section {
@@ -994,13 +1008,3 @@
 
 
 }
-
-
-
-
-
-
-
-
-
-

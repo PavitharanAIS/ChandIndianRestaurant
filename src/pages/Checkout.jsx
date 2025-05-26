@@ -260,26 +260,7 @@ function Checkout() {
                                     
                                 
                             </div>
-                            {/* <div className='radio-btn-elements'>
-                                    <input className='afterpay-btn radio elements'
-                                    type="radio"
-                                    name="payment"
-                                    value="afterpay"
-                                    checked={paymentMethod === 'afterpay'}
-                                    onChange={() => setPaymentMethod('afterpay')}
-                                    />
-                                    <img src='../images/Afterpay_Sticker_BlackonMint.svg' className='afterpay-logo' alt='Afterpay Logo'></img>
-                                    <p className='afterpay-text'>Afterpay</p>
-
-                                    <p className='payment-info'>Eat now pay later</p>
                             
-                            </div> */}
-
-                            {/* <div className='afterpay-description-container'>
-                                <p className='afterpay-badge-description'>or 4 interest-free payments of $10.71 with</p>
-                                <img className='afterpay-badge' src='../images/Afterpay_Badge_BlackonMint.jpg'></img>
-                                <FontAwesomeIcon className='afterpay-description-info-icon' icon={faCircleInfo} />
-                            </div> */}
 
                             <div className='surcharge-warning-container'>
                                 <p className='surcharge-text'>There will be an extra 2.00% surcharge for online payment processing (for payments made by all Eftpos Debit Cards & Credit Cards) - Extra 2.00% surcharge on this order will be $0.75</p>

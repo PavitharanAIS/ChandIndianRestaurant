@@ -33,7 +33,7 @@
     width: 10rem;
     height: 3rem; 
     position: relative;
-    z-index: 1000;
+    z-index: 2;
     justify-content: center;
     justify-self: left;
     padding-left: 1rem;
@@ -48,7 +48,7 @@
     width: 15rem;
     height: 3rem; 
     position: relative;
-    z-index: 1000;
+    z-index: 2;
     justify-content: center;
     justify-self: left;
     padding-left: 1rem;

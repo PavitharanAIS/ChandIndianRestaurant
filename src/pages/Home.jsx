@@ -7,11 +7,26 @@ import PersonDropdown from '../components/PersonDropDown';
 import TimeDropDown from '../components/TimeDropDown';
 import DateDropDown from '../components/DateDropDown';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 
 
 
 function Home() {
+
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state?.scrollTo) {
+        const element = document.getElementById(location.state.scrollTo);
+        if (element) {
+            // Delay to ensure the DOM is ready
+            setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+        }
+    }, [location.state]);
 
 
     useEffect(() => {

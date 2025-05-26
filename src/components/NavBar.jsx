@@ -7,7 +7,6 @@ import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons/faCartShopping';
 import { useState, useContext } from 'react';
-import { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { CartContext } from '../components/CartContext';
 import DishDetailModal from './DishDetailModal';
@@ -49,14 +48,8 @@ function NavBar({ preferredRestaurant, onLocationBtnClick }) {
     };
 
     const scrollToReservation = () => {
+        
         const element = document.getElementById('reserve-table');
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
-    const scrollToDineIn = () => {
-        const element = document.getElementById('dine-in');
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
@@ -231,9 +224,9 @@ function NavBar({ preferredRestaurant, onLocationBtnClick }) {
                         <FontAwesomeIcon icon={faTimes} />
                     </button>
                     <ul className="sliding-nav-links">
-                        <li><Link to="/" onClick={toggleNav}>Home</Link></li>
-                        <li onClick={toggleNav}><Link onClick={scrollToDineIn} >Locations</Link></li>
-                        <li onClick={toggleNav}><Link onClick={scrollToReservation}>Reservation</Link></li>
+                        <li onClick={toggleNav}><Link to="/">Home</Link></li>
+                        <li onClick={toggleNav}><Link to="/" state={{ scrollTo: 'reserve-table' }}>Reservation</Link></li>
+                        <li onClick={toggleNav}><Link to="/" state={{ scrollTo: 'dine-in' }}>Locations</Link></li>
                         <li onClick={toggleNav}><Link to="../pages/Menu">Order Online</Link></li>
                         <li onClick={toggleNav}><Link to="../pages/Feedback">Feedback</Link></li>
                         <li onClick={toggleNav}><Link to="../pages/AboutUs">About</Link></li>

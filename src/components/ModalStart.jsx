@@ -2,7 +2,7 @@ import '../css/ModalStart.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { useState} from 'react';
-import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ModalStart = ({ onRestaurantSelect }) => {
 
@@ -21,10 +21,12 @@ const ModalStart = ({ onRestaurantSelect }) => {
             onRestaurantSelect(preferredRestaurant); // Pass selected restaurant to Home component
         };
 
+
+        const navigate = useNavigate();
         const handleSubmitOrderOnline = () => {
 
             onRestaurantSelect(preferredRestaurant); // Pass selected restaurant to Home component
-            navigate('/Menu');
+            navigate('/pages/Menu');
         };
 
 
@@ -56,7 +58,7 @@ const ModalStart = ({ onRestaurantSelect }) => {
 
                 {preferredRestaurant && (
                     <div className='modal-button-order-online'>
-                        <button onClick={handleSubmit}>Order Online</button>
+                        <button onClick={handleSubmitOrderOnline}>Order Online</button>
                     </div>
                 )}
     
