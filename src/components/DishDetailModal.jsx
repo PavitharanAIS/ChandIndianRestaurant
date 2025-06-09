@@ -1,6 +1,6 @@
 import '../css/DishDetailModal.css';
 import ChooseCurryDropDown from './ChooseCurryDropDown';
-import ChooseSizeDropDown from './ChooseSizeDropDown';
+import ChooseMeatDropDown from './ChooseMeatDropDown';
 import ChooseSpiceDropDown from './ChooseSpiceDropDown';
 import ChoosePortionDropDown from './ChoosePortionDropDown';
 import { useEffect, useRef, useState, useContext } from 'react';
@@ -14,7 +14,7 @@ function DishDetailModal({ dish, onClose, editingIndex }) {
     const modalRef = useRef();
     const [quantity, setQuantity] = useState(1); // Counter state
     const [selectedCurry, setSelectedCurry] = useState('');
-    const [selectedSize, setSelectedSize] = useState('');
+    const [selectedMeat, setSelectedMeat] = useState('');
     const [selectedSpice, setSelectedSpice] = useState('');
     const [selectedPortion, setSelectedPortion] = useState('');
     const [price, setPrice] = useState(dish.price || 0);
@@ -32,7 +32,7 @@ function DishDetailModal({ dish, onClose, editingIndex }) {
         ...dish,
         quantity,
         curry: selectedCurry,
-        size: selectedSize,
+        meat: selectedMeat,
         spiceLevel: selectedSpice,
         portion: selectedPortion,
         price: price
@@ -70,7 +70,7 @@ function DishDetailModal({ dish, onClose, editingIndex }) {
     if (dish) {
         setQuantity(dish.quantity || 1);
         setSelectedCurry(dish.curry || '');
-        setSelectedSize(dish.size || '');
+        setSelectedMeat(dish.meat || '');
         setSelectedSpice(dish.spiceLevel || '');
         setSelectedPortion(dish.portion || '');
     }
@@ -110,7 +110,7 @@ function DishDetailModal({ dish, onClose, editingIndex }) {
                         </div>
 
                         <div className='details-form-choose-size'>
-                            <ChooseSizeDropDown selectedSize={selectedSize} setSelectedSize={setSelectedSize} />
+                            <ChooseMeatDropDown selectedMeat={selectedMeat} setSelectedMeat={setSelectedMeat} />
                         </div>
 
                         <div className='details-form-choose-spice-level'>
